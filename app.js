@@ -1,4 +1,5 @@
 /* Modules */
+require('dotenv').config(); // for MongoDB connection string environment variable
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -9,6 +10,14 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+
+console.log(process.env.CONNECTION_STRING);
+
+// Set up MongoDB connection
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+const connectionString = process.env.CONNECTION_STRING;
+mongoose.connect(connectionString);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
