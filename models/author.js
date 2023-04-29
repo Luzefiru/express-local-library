@@ -30,4 +30,4 @@ AuthorSchema.virtual('url').get(function () {
 });
 
 // Export model
-module.exports = mongoose.model('Authors', AuthorSchema);
+module.exports = mongoose.model('Author', AuthorSchema);
