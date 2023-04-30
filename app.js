@@ -26,7 +26,7 @@ app.use(limiter);
 // Set up MongoDB connection
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', false);
-const connectionString = process.env.CONNECTION_STRING;
+const connectionString = process.env.MONGODB_URI;
 mongoose.connect(connectionString);
 
 // view engine setup
